@@ -29,7 +29,7 @@ for row in df.iloc :
   
 df_mapped = pd.DataFrame(mapping_rows)
 
-path = "data_lake/sirver/movimientos_hospital_clean.csv"
+path = "data_lake/silver/movimientos_hospital_clean.csv"
 folder_destiny = os.path.dirname(path)
 os.makedirs(folder_destiny, exist_ok=True)
 
