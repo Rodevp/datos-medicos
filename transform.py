@@ -3,6 +3,7 @@ import os
 
 df = pd.read_csv("./data_lake/bronze/movimientos_hospital_raw.csv")
 df = df.drop_duplicates(subset=["id_registro"], keep="first")
+df = df.drop_duplicates(subset=["cama_serie"], keep="first")
 
 df["cama_tiene_sabana"] = df["cama_tiene_sabana"].fillna("no")
 df["personal_especialidad"] = df["personal_especialidad"].fillna("no especificado")

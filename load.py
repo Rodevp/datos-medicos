@@ -62,7 +62,6 @@ for row in df.iloc:
 
     # camas
     bed_id = row["cama_serie"]
-    print("serie de cama: ", bed_id)
     bed_type = row["cama_tipo"]
     have_sheet = row["cama_tiene_sabana"]
 
@@ -75,8 +74,9 @@ for row in df.iloc:
 
 for bed in beds :
     #save_beds(bed["id"], bed["type"], bool(bed["have_sheet"]), cursor, conexion)
-    #print(bed["id"], bed["type"], bool(bed["have_sheet"]))
-    pass
+    #print(bed)
+    if bed["id"] == "CAM-649": 
+        print("ya existe")
 
 if cursor is not None: 
     conexion.close()
