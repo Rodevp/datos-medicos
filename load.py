@@ -32,6 +32,8 @@ def save_role(role, speciality, cursor, conexion):
     cursor.execute(query, (role, speciality))
     conexion.commit()
 
+    print("Rol y especialidad guardados correctamente")
+
 
 cursor, conexion = init_db()
 

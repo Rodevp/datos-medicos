@@ -4,8 +4,8 @@ import os
 df = pd.read_csv("./data_lake/bronze/movimientos_hospital_raw.csv")
 
 df["cama_tiene_sabana"] = df["cama_tiene_sabana"].fillna("no")
-df["personal_especialidad"] = df["personal_especialidad"].fillna("no espeficado")
-df["cama_tipo"] = df["cama_tipo"].fillna("no espeficado")
+df["personal_especialidad"] = df["personal_especialidad"].fillna("no especificado")
+df["cama_tipo"] = df["cama_tipo"].fillna("no especificado")
 df = df.drop_duplicates(subset=["id_registro"], keep="first")
 
 mapping_rows = []
