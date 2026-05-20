@@ -73,10 +73,7 @@ for row in df.iloc:
 
 
 for bed in beds :
-    #save_beds(bed["id"], bed["type"], bool(bed["have_sheet"]), cursor, conexion)
-    #print(bed)
-    if bed["id"] == "CAM-649": 
-        print("ya existe")
+    save_beds(bed["id"], bed["type"], bool(bed["have_sheet"]), cursor, conexion)
 
 if cursor is not None: 
     conexion.close()
