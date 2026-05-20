@@ -1,7 +1,7 @@
 CREATE TABLE dim_personal (
     id SERIAL PRIMARY KEY,
     personal_role VARCHAR(50) NOT NULL,
-    personal_especiality VARCHAR(50) NOT NULL
+    personal_speciality VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE dim_beds (
