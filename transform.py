@@ -2,11 +2,12 @@ import pandas as pd
 import os
 
 df = pd.read_csv("./data_lake/bronze/movimientos_hospital_raw.csv")
+df = df.drop_duplicates(subset=["id_registro"], keep="first")
 
 df["cama_tiene_sabana"] = df["cama_tiene_sabana"].fillna("no")
 df["personal_especialidad"] = df["personal_especialidad"].fillna("no especificado")
 df["cama_tipo"] = df["cama_tipo"].fillna("no especificado")
-df = df.drop_duplicates(subset=["id_registro"], keep="first")
+df["cama_serie"] = df["cama_serie"].fillna("no especificado")
 
 mapping_rows = []
 

@@ -34,10 +34,22 @@ def save_role(role, speciality, cursor, conexion):
 
     print("Rol y especialidad guardados correctamente")
 
+def save_beds(bed_id, bed_type, have_sheet, cursor, conexion):
+
+    query = """
+        INSERT INTO dim_beds(id, bed_type, bed_have_sheet)
+        VALUES (%s, %s, %s);
+    """
+
+    cursor.execute(query, (bed_id, bed_type, have_sheet))
+    conexion.commit()
+
+    print("Cama guardada correctamente")
 
 cursor, conexion = init_db()
 
 roles_and_specialities = []
+beds = []
 
 for row in df.iloc:
     role = row["personal_rol"]
@@ -48,9 +60,23 @@ for row in df.iloc:
         "speciality": speciality
     })
 
+    # camas
+    bed_id = row["cama_serie"]
+    print("serie de cama: ", bed_id)
+    bed_type = row["cama_tipo"]
+    have_sheet = row["cama_tiene_sabana"]
 
-for data in roles_and_specialities:
-    save_role(data["role"], data["speciality"], cursor, conexion)
+    beds.append({
+        "id": bed_id,
+        "type": bed_type,
+        "have_sheet": have_sheet
+    })
+
+
+for bed in beds :
+    #save_beds(bed["id"], bed["type"], bool(bed["have_sheet"]), cursor, conexion)
+    #print(bed["id"], bed["type"], bool(bed["have_sheet"]))
+    pass
 
 if cursor is not None: 
     conexion.close()
