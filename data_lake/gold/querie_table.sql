@@ -14,7 +14,7 @@ CREATE TABLE dim_movements (
     id_record VARCHAR(20) PRIMARY KEY,
     date_movement TIMESTAMP NOT NULL,
     name_area VARCHAR(100) NOT NULL,
-    bed_is_occupied BOOLEAN NOT NULL,
+    bed_is_occuped BOOLEAN NOT NULL,
 
     personal_id INT REFERENCES dim_personal(id),
     bed_serial VARCHAR(20) REFERENCES dim_beds(id)
